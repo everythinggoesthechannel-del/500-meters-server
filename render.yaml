@@ -1,0 +1,15 @@
+# 500 Meters — Render one-click deploy (Blueprint)
+# In Render: New → Blueprint → connect the repo/folder containing server/
+# Render reads this file and creates the service. Free plan is enough
+# for testing; upgrade the plan in Render if the app grows.
+# The public URL Render gives you (e.g. https://five-hundred-meters.onrender.com)
+# is the permanent backend URL — put it in the app (see README.md).
+services:
+  - type: web
+    name: 500-meters
+    env: node
+    plan: free
+    buildCommand: ""
+    startCommand: node server.js
+    healthCheckPath: /health
+    autoDeploy: true
